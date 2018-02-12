@@ -27,5 +27,7 @@ module RunningBuddy
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # Generate javascript files instead of CoffeeScript
+    config.generators.javascript_engine = :js
   end
 end
