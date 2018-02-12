@@ -5,4 +5,10 @@ feature 'testing infrastructure' do
     visit '/'
     expect(page).to have_content("Running Buddy")
   end
+
+  scenario 'clicking button changes text' do
+    visit '/'
+    find('#change-button').click
+    expect(page).to have_content("wazap")
+  end
 end
