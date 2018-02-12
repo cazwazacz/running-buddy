@@ -14,6 +14,12 @@ feature 'Signing up' do
     expect(page).to have_content 'Signed up!'
   end
 
+  scenario 'Cannot sign up with the same username twice' do
+    sign_up('allan', 'allan@allan.com')
+    sign_up('allan', 'tim@tim.com')
+    expect(page).to have_content 'Username has already been taken'
+  end
+
   scenario 'Cannot sign up with the same email twice' do
     sign_up('allan', 'allan@allan.com')
     sign_up('allan', 'allan@allan.com')
