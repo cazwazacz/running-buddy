@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <div id="user_nav">
+      <% if current_user %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to "Log out", "/sessions/#{current_user.id}", method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", controller: "users", action: "new" %> or
+        <%= link_to "Log in", controller: "sessions", action: "new" %>
+      <% end %>
+    </div>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
