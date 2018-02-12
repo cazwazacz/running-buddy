@@ -10,25 +10,20 @@ feature 'Signing up' do
   end
 
   scenario 'Signing up works' do
-    sign_up
+    sign_up('allan@allan.com')
     expect(page).to have_content 'Signed up!'
   end
 
   scenario 'Cannot sign up with the same email twice' do
-    sign_up
-    visit '/'
-    click_link 'Sign up'
-    fill_in 'user[email]', with: 'allan@allan.com'
-    fill_in 'user[password]', with: '123456'
-    fill_in 'user[password_confirmation]', with: '123456'
-    click_button 'Create User'
+    sign_up('allan@allan.com')
+    sign_up('allan@allan.com')
     expect(page).to have_content 'Email has already been taken'
   end
 end
 
 feature 'Logging in' do
   scenario 'Logging in takes you to the index page which has the user\'s email' do
-    sign_up
+    sign_up('allan@allan.com')
     click_link 'Log in'
     fill_in 'email', with: 'allan@allan.com'
     fill_in 'password', with: '123456'
@@ -37,7 +32,7 @@ feature 'Logging in' do
   end
 
   scenario 'Cannot log in if credentials are wrong' do
-    sign_up
+    sign_up('allan@allan.com')
     click_link 'Log in'
     fill_in 'email', with: 'allan@allan.com'
     fill_in 'password', with: '123423'
