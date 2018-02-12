@@ -10,33 +10,33 @@ feature 'Signing up' do
   end
 
   scenario 'Signing up works' do
-    sign_up('allan@allan.com')
+    sign_up('allan', 'allan@allan.com')
     expect(page).to have_content 'Signed up!'
   end
 
   scenario 'Cannot sign up with the same email twice' do
-    sign_up('allan@allan.com')
-    sign_up('allan@allan.com')
+    sign_up('allan', 'allan@allan.com')
+    sign_up('allan', 'allan@allan.com')
     expect(page).to have_content 'Email has already been taken'
   end
 end
 
 feature 'Logging in' do
   scenario 'Logging in takes you to the index page which has the user\'s email' do
-    sign_up('allan@allan.com')
+    sign_up('allan', 'allan@allan.com')
     click_link 'Log in'
-    fill_in 'email', with: 'allan@allan.com'
+    fill_in 'username', with: 'allan'
     fill_in 'password', with: '123456'
     click_button 'Log in'
     expect(page).to have_content 'Logged in as allan@allan.com.'
   end
 
   scenario 'Cannot log in if credentials are wrong' do
-    sign_up('allan@allan.com')
+    sign_up('allan', 'allan@allan.com')
     click_link 'Log in'
-    fill_in 'email', with: 'allan@allan.com'
+    fill_in 'username', with: 'allan'
     fill_in 'password', with: '123423'
     click_button 'Log in'
-    expect(page).to have_content 'Invalid email or password'
+    expect(page).to have_content 'Invalid username or password'
   end
 end
