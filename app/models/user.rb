@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  def notifications
+    Request.where(user_2: self.id, status: 'pending').length
+  end
 end
