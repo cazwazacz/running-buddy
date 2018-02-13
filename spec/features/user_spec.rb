@@ -9,9 +9,9 @@ feature 'Signing up' do
     expect(page).to have_content 'Password confirmation'
   end
 
-  scenario 'Signing up works' do
+  scenario 'Signing up creates a logged in session' do
     sign_up('allan', 'allan@allan.com')
-    expect(page).to have_content 'Signed up!'
+    expect(page).to have_content 'Logged in as allan@allan.com.'
   end
 
   scenario 'Cannot sign up with the same username twice' do
