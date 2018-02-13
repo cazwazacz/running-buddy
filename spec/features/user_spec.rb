@@ -16,29 +16,33 @@ feature 'Signing up' do
 
   scenario 'Cannot sign up with the same username twice' do
     sign_up('allan', 'allan@allan.com')
+    click_link 'Log out'
     sign_up('allan', 'tim@tim.com')
     expect(page).to have_content 'Username has already been taken'
   end
 
   scenario 'Cannot sign up with the same email twice' do
     sign_up('allan', 'allan@allan.com')
+    click_link 'Log out'
     sign_up('allan', 'allan@allan.com')
     expect(page).to have_content 'Email has already been taken'
   end
 end
 
 feature 'Logging in' do
-  scenario 'Logging in takes you to the index page which has the user\'s email' do
+  scenario 'Logging in takes you to the index page which has the user\'s username' do
     sign_up('allan', 'allan@allan.com')
+    click_link 'Log out'
     click_link 'Log in'
     fill_in 'username', with: 'allan'
     fill_in 'password', with: '123456'
     click_button 'Log in'
-    expect(page).to have_content 'Logged in as allan@allan.com.'
+    expect(page).to have_content 'Keep running, allan!'
   end
 
   scenario 'Cannot log in if credentials are wrong' do
     sign_up('allan', 'allan@allan.com')
+    click_link 'Log out'
     click_link 'Log in'
     fill_in 'username', with: 'allan'
     fill_in 'password', with: '123423'
