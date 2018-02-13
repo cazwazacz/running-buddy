@@ -8,14 +8,14 @@ class RequestsController < ApplicationController
   private
 
   def user_1
-    params["id"].split("-")[0].to_i
+    params['id'].split("-")[0].to_i
   end
 
   def user_2
-    params["id"].split("-")[1].to_i
+    params['id'].split("-")[1].to_i
   end
 
   def new_request_params
-    { user_1: user_1, user_2: user_2, status: "pending" }
+    { user_1: user_1, user_2: user_2, status: 'pending' }
   end
 end
