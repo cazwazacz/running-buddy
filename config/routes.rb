@@ -2,13 +2,10 @@ Rails.application.routes.draw do
 
   root 'runners#index'
 
-  resources :users, only: [:new, :create] do
-    resources :requests, only: [:create] do
-    end
-  end
+  resources :users, only: [:new, :create]
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :requests, only: [:create]
+  resources :requests, only: [:index, :create]
 
 end
