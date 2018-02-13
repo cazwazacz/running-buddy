@@ -13,6 +13,8 @@ feature 'Requests' do
     expect(page).to have_content 'john Run with me!'
     click_button 'Run with me!'
     expect(page).to have_content 'john Request sent'
+    visit '/'
+    expect(page).to have_content 'john Request sent'
   end
 
   scenario 'a user can see that they have a notification' do
