@@ -1,24 +1,40 @@
+*** In progress... ***
 # Running Buddy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Are you tired of running all by your lonesome? Well, Running Buddy is here to help - it helps you find people to run with so you will never have to run alone again!
 
-Things you may want to cover:
+Some MVP user stories
+---
+```
+As a runner
+So that I can find running buddies
+I want to be able to sign up
 
-* Ruby version
+As a runner
+So that I can choose a running buddy
+I want to be able to see a list of runners
 
-* System dependencies
+As a runner
+So that I can let someone know I want to run with them
+I want to be able to request to run with them
 
-* Configuration
+As a runner
+So that I know that someone wants to run with me
+I want to receive a notification when someone requests to run with me
+```
 
-* Database creation
+Running (get it?) the app locally
+---
+```
+$ git clone https://github.com/cazwazacz/running-buddy.git
+$ cd running-buddy
+$ bundle install
+$ bin/rails db:setup
+$ bin/rails server
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run tests
+---
+```
+$ rspec
+```
