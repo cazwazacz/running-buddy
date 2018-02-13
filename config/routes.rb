@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
   root 'runners#index'
 
-  resources :users
+  resources :users, only: [:new, :create] do
+    resources :requests, only: [:create] do
+    end
+  end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
-  resources :requests
+  resources :requests, only: [:create]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
