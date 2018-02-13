@@ -1,4 +1,8 @@
 class RequestsController < ApplicationController
+
+  def index
+  end
+
   def create
     @request = Request.new(new_request_params)
     @request.save
