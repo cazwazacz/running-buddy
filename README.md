@@ -21,6 +21,10 @@ I want to be able to request to run with them
 As a runner
 So that I know that someone wants to run with me
 I want to receive a notification when someone requests to run with me
+
+As a runner
+So I can go running with someone
+I want to be able to accept their request
 ```
 
 Running (get it?) the app locally
