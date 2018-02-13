@@ -14,4 +14,17 @@ feature 'Requests' do
     click_button 'Run with me!'
     expect(page).to have_content 'john Request sent'
   end
+
+  scenario 'a user can see that they have a notification' do
+    sign_up('allan', 'allan@allan.com')
+    click_link 'Log out'
+    sign_up('john', 'john@john.com')
+    click_button 'Run with me!'
+    click_link 'Log out'
+    click_link 'Log in'
+    fill_in 'username', with: 'allan'
+    fill_in 'password', with: '123456'
+    click_button 'Log in'
+    expect(page).to have_content 'Notifications (1)'
+  end
 end
