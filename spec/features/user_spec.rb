@@ -11,7 +11,7 @@ feature 'Signing up' do
 
   scenario 'Signing up creates a logged in session' do
     sign_up('allan', 'allan@allan.com')
-    expect(page).to have_content 'Logged in as allan@allan.com.'
+    expect(page).to have_content 'Keep running, allan!'
   end
 
   scenario 'Cannot sign up with the same username twice' do
