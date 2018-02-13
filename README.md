@@ -1,4 +1,4 @@
-*** In progress... ***
+*In progress...*
 # Running Buddy
 
 #### Are you tired of running all by your lonesome? Well, Running Buddy is here to help - it helps you find people to run with so you will never have to run alone again!
