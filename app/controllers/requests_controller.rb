@@ -14,6 +14,9 @@ class RequestsController < ApplicationController
     200
   end
 
+  def update
+  end
+
   private
 
   def user_1
