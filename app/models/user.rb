@@ -29,11 +29,7 @@ class User < ActiveRecord::Base
     request.where(user_2: self.id, status: 'pending').length
   end
 
-  def requested?(user_2_id)
-    if Request.where(user_1: self.id, user_2: user_2_id, status: 'pending').length > 0
-      true
-    else
-      false
-    end
+  def requested?(request = Request, user_2_id)
+    request.where(user_1: self.id, user_2: user_2_id, status: 'pending').length > 0
   end
 end
