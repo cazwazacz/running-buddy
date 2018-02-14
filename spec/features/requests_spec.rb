@@ -47,4 +47,9 @@ feature 'Requests' do
     expect(page).to have_content 'Sent'
     expect(page).to have_content 'john'
   end
+
+  scenario 'a user that is not signed in cannot visit /requests' do
+    visit '/requests'
+    expect(page).to have_content 'You must be signed in to view this page.'
+  end
 end
