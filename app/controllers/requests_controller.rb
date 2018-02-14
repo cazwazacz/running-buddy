@@ -1,6 +1,11 @@
 class RequestsController < ApplicationController
 
   def index
+    if session[:user_id]
+      @requests = User.find(session[:user_id]).requests
+    else
+      redirect_to root_url, notice: 'You must be signed in to view this page.'
+    end
   end
 
   def create

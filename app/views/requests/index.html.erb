@@ -1,1 +1,17 @@
-<h1> REQUESTS INDEX </h1>
+<h1> Requests </h1>
+
+<h2> Received </h2>
+
+<% @requests[:received].each do |request| %>
+  <div>
+    <%= User.find(request.user_1).username %>
+  </div>
+<% end %>
+
+<h2> Sent </h2>
+
+<% @requests[:sent].each do |request| %>
+  <div>
+    <%= User.find(request.user_2).username %>
+  </div>
+<% end %>
