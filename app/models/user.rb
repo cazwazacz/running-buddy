@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def notifications
-    Request.where(user_2: self.id, status: 'pending').length
+  def notifications(request = Request)
+    request.where(user_2: self.id, status: 'pending').length
   end
 
   def requested?(user_2_id)
