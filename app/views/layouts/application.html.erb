@@ -12,7 +12,9 @@
     <div id="user_nav">
       <% if current_user %>
         Keep running, <%= current_user.username %>!
-        Notifications (<%= current_user.notifications %>)
+        <a href="/requests">
+          Notifications (<%= current_user.notifications %>)
+        </a>
         <%= link_to "Log out", "/sessions/#{current_user.id}", method: :delete %>
       <% else %>
         <%= link_to "Sign up", controller: "users", action: "new" %> or
