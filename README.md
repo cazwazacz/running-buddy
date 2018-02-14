@@ -25,6 +25,10 @@ I want to receive a notification when someone requests to run with me
 As a runner
 So I can go running with someone
 I want to be able to accept their request
+
+As a runner
+So that I know my request has been accepted
+I want to receive a notification when this happens
 ```
 
 Running (get it?) the app locally
