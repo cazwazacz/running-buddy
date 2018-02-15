@@ -2,9 +2,8 @@ $(document).ready(function() {
   $('.accept-button').on('click', function() {
     button = $(this);
     ids = button.attr('id');
-    $.ajax('/requests/1', {
-      method: 'PUT',
-      data: { ids: ids }
+    $.ajax('/requests/' + ids, {
+      method: 'PUT'
     }).done(function() {
       requestAccepted(button);
     })
