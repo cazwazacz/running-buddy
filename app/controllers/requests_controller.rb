@@ -15,6 +15,9 @@ class RequestsController < ApplicationController
   end
 
   def update
+    request = Request.where(user_1: user_1, user_2: user_2, status: 'pending')
+    request.update(status: 'accepted')
+    200
   end
 
   private
