@@ -5,7 +5,7 @@
 <% @requests[:received].each do |request| %>
   <div>
     <%= User.find(request.user_1).username %>
-    <button class="accept-button" id="<%="#{current_user.id}-#{request.user_1}"%>"> Accept </button>
+    <button class="accept-button" id="<%="#{request.user_1}-#{current_user.id}"%>"> Accept </button>
   </div>
 <% end %>
 
