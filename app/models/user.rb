@@ -40,7 +40,10 @@ class User < ActiveRecord::Base
   private
 
   def sent_requests(request = Request)
-    request.where(user_1: self.id)
+    {
+      pending: request.where(user_1: self.id, status: 'pending'),
+      accepted: request.where(user_1: self.id, status: 'accepted')
+    }
   end
 
   def received_requests(request = Request)
