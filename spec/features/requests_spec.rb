@@ -19,6 +19,7 @@ feature 'Requests' do
     two_users_sign_up_and_log_in(true)
     click_link 'Notifications (1)'
     click_button 'Accept'
+    expect(page).to have_content 'Accepted'
     click_link 'Log out'
     click_link 'Log in'
     fill_in 'username', with: 'john'
