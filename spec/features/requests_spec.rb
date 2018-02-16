@@ -24,7 +24,9 @@ feature 'Requests' do
     expect(page).to have_content 'john'
     expect(page).to have_content 'Accepted'
     expect(page).to have_content 'Sent'
+    expect(page).to have_content 'Pending'
     expect(page).to have_content 'john'
+    expect(page).to have_content 'Accepted'
   end
 
   scenario 'a user that is not signed in cannot visit /requests' do

@@ -21,7 +21,17 @@
 
 <h2> Sent </h2>
 
-<% @requests[:sent].each do |request| %>
+<h3> Pending </h3>
+
+<% @requests[:sent][:pending].each do |request| %>
+  <div>
+    <%= User.find(request.user_2).username %>
+  </div>
+<% end %>
+
+<h3> Accepted </h3>
+
+<% @requests[:sent][:accepted].each do |request| %>
   <div>
     <%= User.find(request.user_2).username %>
   </div>
