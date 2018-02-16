@@ -20,7 +20,9 @@ feature 'Requests' do
     click_button 'Run with me!'
     click_link 'Notifications (1)'
     expect(page).to have_content 'Received'
+    expect(page).to have_content 'Pending'
     expect(page).to have_content 'john'
+    expect(page).to have_content 'Accepted'
     expect(page).to have_content 'Sent'
     expect(page).to have_content 'john'
   end
