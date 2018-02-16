@@ -1,14 +1,16 @@
 $(document).ready(function() {
-  $('.request-button').on('click', function() {
+
+  function requestSentButton(button) {
+    button.html('Request sent');
+    button.prop('disabled', true);
+  }
+
+  $(document).on('click', '.request-button', function() {
     button = $(this);
     ids = button.attr('id');
     $.post('/requests', {id: ids}, function() {
       requestSentButton(button);
     });
   })
-});
 
-function requestSentButton(button) {
-  button.html('Request sent');
-  button.prop('disabled', true);
-}
+});

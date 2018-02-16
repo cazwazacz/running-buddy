@@ -1,5 +1,11 @@
 $(document).ready(function() {
-  $('.accept-button').on('click', function() {
+
+  function requestAccepted(button) {
+    button.html('Accepted');
+    button.prop('disabled', true);
+  }
+
+  $(document).on('click', '.accept-button', function() {
     button = $(this);
     ids = button.attr('id');
     $.ajax('/requests/' + ids, {
@@ -8,9 +14,5 @@ $(document).ready(function() {
       requestAccepted(button);
     })
   })
-})
 
-function requestAccepted(button) {
-  button.html('Accepted');
-  button.prop('disabled', true);
-}
+})
