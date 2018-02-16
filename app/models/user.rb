@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def notifications(request = Request)
-    request.where(user_2: self.id, status: 'pending').length
+  def notifications
+    received_notifications + sent_notifications
   end
 
   def requested?(request = Request, user_2_id)
@@ -38,6 +38,14 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def received_notifications(request = Request)
+    request.where(user_2: self.id, status: 'pending').length
+  end
+
+  def sent_notifications(request = Request)
+    request.where(user_1: self.id, status: 'accepted').length
+  end
 
   def sent_requests(request = Request)
     {
