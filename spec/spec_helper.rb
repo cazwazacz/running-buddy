@@ -1,4 +1,13 @@
 require File.expand_path("../../config/environment", __FILE__)
+
+require 'simplecov'
+
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/spec/'
+end
+
 require 'database_cleaner'
 require 'rspec/rails'
 require 'capybara/rails'
