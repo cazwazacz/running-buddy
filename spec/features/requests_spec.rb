@@ -57,6 +57,7 @@ feature 'Requests' do
     fill_in 'password', with: '123456'
     click_button 'Log in'
     click_link 'Notifications (1)'
-    expect(page).to have_button 'Clear'
+    click_button 'Clear'
+    expect(page).not_to have_content('allan')
   end
 end
