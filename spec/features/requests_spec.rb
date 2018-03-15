@@ -46,4 +46,17 @@ feature 'Requests' do
     visit '/requests'
     expect(page).to have_content 'You must be signed in to view this page.'
   end
+
+  scenario 'a user can clear an accepted received request' do
+    two_users_sign_up_and_log_in(true)
+    click_link 'Notifications (1)'
+    click_button 'Accept'
+    click_link 'Log out'
+    click_link 'Log in'
+    fill_in 'username', with: 'john'
+    fill_in 'password', with: '123456'
+    click_button 'Log in'
+    click_link 'Notifications (1)'
+    expect(page).to have_button 'Clear'
+  end
 end
