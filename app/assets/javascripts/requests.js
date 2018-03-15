@@ -6,13 +6,19 @@ $(document).ready(function() {
   }
 
   $(document).on('click', '.accept-button', function() {
-    button = $(this);
-    ids = button.attr('id');
+    var button = $(this);
+    var ids = button.attr('id');
     $.ajax('/requests/' + ids, {
       method: 'PUT'
     }).done(function() {
       requestAccepted(button);
     })
+  })
+
+  $(document).on('click', '.clear-button', function() {
+    var button = $(this);
+    var parent = button.parent();
+    parent.remove();
   })
 
 })

@@ -16,7 +16,7 @@
 <% @requests[:received][:accepted].each do |request| %>
 <div>
   <%= User.find(request.user_1).username %>
-  <button class="clear-received-button" id="<%="#{request.user_1}-#{current_user.id}"%>"> Clear </button>
+  <button class="clear-button" id="<%="#{request.user_1}-#{current_user.id}"%>"> Clear </button>
 </div>
 <% end %>
 
@@ -35,6 +35,6 @@
 <% @requests[:sent][:accepted].each do |request| %>
   <div>
     <%= User.find(request.user_2).username %>
-    <button class="clear-received-button" id="<%="#{current_user.id}-#{request.user_2}"%>"> Clear </button>
+    <button class="clear-button" id="<%="#{current_user.id}-#{request.user_2}"%>"> Clear </button>
   </div>
 <% end %>
